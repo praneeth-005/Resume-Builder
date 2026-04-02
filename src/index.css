@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  background-color: #f7f6f2;
+}
+
+/* Custom styles for Webkit scrollbar for editor area */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* CSS for creating a tight PDF layout matching the preview area */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  #resume-preview, #resume-preview * {
+    visibility: visible;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  #resume-preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none !important;
+  }
+
+  @page {
+    size: auto;
+    margin: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-delayed-1 {
+  animation: float 5s ease-in-out infinite 1s;
+}
+.animate-float-delayed-2 {
+  animation: float 7s ease-in-out infinite 2s;
+}
